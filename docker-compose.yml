@@ -1,0 +1,7 @@
+version: '2'
+services:
+  devops:
+    build: ./
+    image: devops
+    ports:
+      - "5000:5000"
