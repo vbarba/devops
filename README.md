@@ -1,5 +1,31 @@
 # Devops example Flask app dockerized
 
+This apps provides an example about how to use a python Flask framework to build a API.
+
+It provides the following endpoints:
+
+* GET /users to get all users
+* GET /user/<id> to get a user
+* POST /user to create a new user 
+* DELETE /user/<id> to delete a user
+  
+Example:
+
+```bash
+
+TEST_USER='{"id":1,"username":"test1","email":"test@test.com"}'
+
+# create user
+curl -f -H "Content-Type: application/json" -X POST -d ${TEST_USER} http://127.0.0.1:5000/user
+
+# get user
+curl -f -s -o /dev/null http://127.0.0.1:5000/user/1 
+
+# get users
+curl -f -s -o /dev/null http://127.0.0.1:5000/users 
+# delete user
+curl -f -s -o /dev/null -X DELETE http://127.0.0.1:5000/user/1 
+```
 
 ## Usage
 ```
