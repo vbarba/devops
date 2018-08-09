@@ -18,13 +18,22 @@ TEST_USER='{"id":1,"username":"test1","email":"test@test.com"}'
 # create user
 curl -f -H "Content-Type: application/json" -X POST -d ${TEST_USER} http://127.0.0.1:5000/user
 
+{"id": 1, "username": "test1", "email": "test@test.com"}
+
 # get user
-curl -f -s -o /dev/null http://127.0.0.1:5000/user/1 
+curl -f http://127.0.0.1:5000/user/1 
+
+{"id": 1, "username": "test1", "email": "test@test.com"}
 
 # get users
-curl -f -s -o /dev/null http://127.0.0.1:5000/users 
+curl -f  http://127.0.0.1:5000/users 
+
+[{"id": 1, "username": "test1", "email": "test@test.com"}]
+
 # delete user
 curl -f -s -o /dev/null -X DELETE http://127.0.0.1:5000/user/1 
+
+{"id": 1, "username": "test1", "email": "test@test.com"}
 ```
 
 ## Usage
