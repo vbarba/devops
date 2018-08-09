@@ -12,9 +12,9 @@ make clean: stop container and removes image
 You can pass the DATABASE_URL variable to the container in order to use a external (mysql) database instead local sqlite file
 
 Example:
-
+```bash
 docker build -t devops .
 docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=db mysql
 docker run -d --link mysql:mysql --name devops -e DATABASE_URL="mysql://root:root@mysql/db" -p 5000:5000 devops:latest
-
+```
 
