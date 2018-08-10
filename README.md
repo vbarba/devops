@@ -82,8 +82,9 @@ aws cloudformation --region eu-west-1 wait stack-create-complete  \
 
 After the deploy you can get the endpoint URL with the following command:
 
-```aws cloudformation --region eu-west-1 --profile vbarba  describe-stacks --stack-name devops
- --query 'Stacks[0].Outputs[0].OutputValue'
+```aws cloudformation --region eu-west-1 describe-stacks \
+                      --stack-name devops
+                      --query 'Stacks[0].Outputs[0].OutputValue'
 
  "http://devop-LoadB-XXXXXXX.eu-west-1.elb.amazonaws.com"```
 
@@ -94,6 +95,7 @@ And then run some test setting the HOST variable on the following script:
 ```
 HOST="devop-LoadB-EVLDZUBBAWXA-704166709.eu-west-1.elb.amazonaws.com"
 PORT="80"
+TEST_USER='{"id":1,"username":"test1","email":"test@test.com"}'
 
 # create user
 curl -f -H "Content-Type: application/json" -X POST -d ${TEST_USER} http://${HOST}:${PORT}/user
