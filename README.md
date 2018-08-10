@@ -94,7 +94,7 @@ aws cloudformation --region eu-west-1 describe-stacks \
 And then run some test setting the HOST variable on the following script:
 
 ```
-HOST="devop-LoadB-EVLDZUBBAWXA-704166709.eu-west-1.elb.amazonaws.com"
+HOST="devop-LoadB-XXXXXX.eu-west-1.elb.amazonaws.com"
 PORT="80"
 TEST_USER='{"id":1,"username":"test1","email":"test@test.com"}'
 
