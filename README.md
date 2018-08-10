@@ -82,7 +82,8 @@ aws cloudformation --region eu-west-1 wait stack-create-complete  \
 
 After the deploy you can get the endpoint URL with the following command:
 
-```aws cloudformation --region eu-west-1 describe-stacks \
+```
+aws cloudformation --region eu-west-1 describe-stacks \
                       --stack-name devops
                       --query 'Stacks[0].Outputs[0].OutputValue'
 
